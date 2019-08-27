@@ -14,6 +14,8 @@ export class Navbar extends Component {
   }
 
   render() {
+    console.log("render navbar");
+    
     return (
       <nav className="navbar bg-primary">
         <h1>
