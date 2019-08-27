@@ -14,7 +14,12 @@ class Search extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-    
+    // passing the props upward
+    this.props.searchUsers(this.state.text);
+    // resetting the state
+    this.setState({
+      text: ''
+    });
   }
 
   render() {
