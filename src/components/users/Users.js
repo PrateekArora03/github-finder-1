@@ -26,8 +26,6 @@ class Users extends Component {
   }
 
   render() {
-    console.log("users render");
-
     return (
       <div style={userStyle}>
         {

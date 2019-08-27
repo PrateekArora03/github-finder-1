@@ -6,8 +6,6 @@ import './App.css';
 class App extends Component {
 
   render () {
-      console.log("app render")
-
       return (
       <Fragment>
         <div className="App">
