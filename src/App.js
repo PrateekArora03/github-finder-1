@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { Fragment, Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-    </div>
-  );
+class App extends Component {
+
+  render () {
+      const name = 'John Doe';
+      const loading = false;
+      const showName = false;
+
+      return (
+      <Fragment>
+        <div className="App">
+          { loading ? <h4>Loading...</h4> : <h1>Hello { showName && name }</h1> }
+        </div>
+      </Fragment>
+    );
+  }
 }
 
 export default App;
