@@ -1,20 +1,31 @@
 import React from 'react';
 import UserItem from './Useritem';
+import Spinner from '../layout/Spinner';
+import PropTypes from 'prop-types'
 
 const Users = (props) => {
   const { users, loading } = props;
 
-  return (
-    <div style={userStyle}>
-      {
-        loading ?
-          <h4 className="text-center">loading...</h4> :
+  if (loading) {
+    return (
+      <Spinner />
+    );
+  } else {
+    return (
+      <div style={userStyle}>
+        {
           users.map(user => (
             <UserItem key={user.id} user={user}/>
           ))
-      }
-    </div>
-  )
+        }
+      </div>
+    );
+  }
+}
+
+Users.propTypes = {
+  users: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired
 }
 
 const userStyle = {
