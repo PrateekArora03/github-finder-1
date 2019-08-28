@@ -6,6 +6,7 @@ import Users from './components/users/Users';
 import Search from './components/users/Search';
 import Alert from './components/layout/Alert';
 import About from './components/pages/About';
+import User from './components/users/User';
 import './App.css';
 
 class App extends Component {
@@ -73,7 +74,7 @@ class App extends Component {
   render () {
     console.log("rndr-app");
 
-    const { users, loading } = this.state;
+    const { users, user, loading } = this.state;
 
     return (
       <Router>
@@ -89,6 +90,9 @@ class App extends Component {
                 </Fragment>
               )} />
               <Route exact path="/about" component={About} />
+              <Route exact path="/user/:login" render={props => (
+                <User {...props} getUser={this.getUser} user={user} loading={loading} />
+              )} />
             </Switch>
           </div>
         </div>
