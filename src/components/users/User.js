@@ -21,7 +21,7 @@ class User extends Component {
 
   render() {
     const { user: { name, avatar_url, location, bio, blog, login, html_url, company, followers, following, public_repos, public_gists, hireable }, loading, repos } = this.props;
-
+    
     if (loading) return <Spinner />
 
     return (
