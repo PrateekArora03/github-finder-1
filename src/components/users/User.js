@@ -1,13 +1,12 @@
 import React, { useEffect, useContext, Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import Repos from '../repos/Repos';
 import Spinner from '../layout/Spinner';
 import GithubContext from '../../context/github/githubContext';
 
-const User = ({ repos, getUserRepos, match }) => {
+const User = ({ match }) => {
   const githubContext = useContext(GithubContext);
-  const { getUser, loading, user } = githubContext;
+  const { user, getUser, loading, repos, getUserRepos } = githubContext;
 
   // useEffect runs on every update, to mimick componentDidMount, use [] in the end
   useEffect(() => {
@@ -91,15 +90,9 @@ const User = ({ repos, getUserRepos, match }) => {
           Public gists: {public_gists}
         </div>
       </div>
-
       <Repos repos={repos} />
     </Fragment>
   )
 };
-
-User.propTypes = {
-  repos: PropTypes.array.isRequired,
-  getUserRepos: PropTypes.func.isRequired,
-}
 
 export default User
